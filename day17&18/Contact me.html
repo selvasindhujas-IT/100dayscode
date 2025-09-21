@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact me</title>
+</head>
+<body>
+    <img src="images/contactme.jpg" alt="img">
+    <div class="contactbox">
+        
+        <div class="inside">
+            <h1>&#128233;Contact Me</h1>
+            <div class="forname">
+                <label id="l1" style="padding-right: 30px;">Name:</label>
+          <input type="text" name="name" id="name" required>
+            </div>
+            <div class="foremail">
+                <label id="l2" style="padding-right: 30px;">Email:  </label>
+     <input type="email" name="mailid" id="email" style="width: 200px;" required>
+            </div>
+            <div class="formsg">
+                <label id="l3" style="padding-right: 7px;">Message:</label>
+    <textarea placeholder="Message.." id="textarea"> </textarea>
+            </div>
+            
+            <button type="submit" id="sub" onclick="submit()">Submit</button>
+        </div>
+        <div id="formMsg"  style="display: none;">
+            <button id="tick">&#10004;</button>
+            <h2>Message Send!</h2>
+        </div>
+     </div>
+</body>
+<style>
+    *{
+        margin: 0;
+        padding: 0%;
+    }
+    img{
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        display: flex;
+    }
+    .contactbox{
+        position: absolute;
+        border-radius: 2px;
+        top: 30%;
+        left: 35%;
+       height: 326.52px;
+       width:317.6px;
+       background: rgba(0, 0, 0, 0.2);
+       backdrop-filter: blur(3px);
+       display: block;
+ }
+ h1{
+    padding: 15px;
+    position: relative;
+    left: 10%;
+    top: -10px;
+    font-weight:bolder;
+    font-style:italic;
+ }
+  #tick{
+color: green;
+display: block;
+border: none;
+border-radius: 50%;
+position: absolute;
+top: 30%;
+left: 45%;
+padding: 10px;
+font-size: 19px;
+ }
+ h2{
+    display: block; 
+position: absolute;
+top: 50%;
+left: 29%;}
+
+ #textarea{
+    width: 200px;
+    height: 100px;
+ }
+#sub{
+    padding: 6px;
+    font-size:medium;
+    font-style: italic;
+        position: relative;
+        border-color: gray;
+    left: 40%;background: transparent;
+    transition: all 1s;
+}
+#sub:hover{
+ background-color: gray;   
+}
+.inside{
+    height: max-content;
+    width: min-content;
+    color:black;
+    padding: 20px;
+    }
+    #name{
+    width: 200px;
+    }
+    .forname{
+        display: flex;
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+    .foremail{
+        display: flex;
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+    .formsg{
+        display: flex;
+        font-size: 20px;
+        padding-bottom: 10px;
+
+    }
+
+</style>
+<script>
+    var cont = document.getElementsByClassName("inside")[0];
+    var formMsg = document.getElementById("formMsg");
+    var uname= document.getElementById('name');
+    var uemail = document.getElementById('email');
+    var umsg = document.getElementById('textarea');    
+
+async function submit(){
+
+try{
+    const res =await fetch("http://localhost:5000/contact",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({name:uname.value.trim(),email:uemail.value.trim(),message:umsg.value.trim()})
+    });
+    const data = await res.json();
+    if(data.success){
+         formMsg.style.display='flex';
+cont.style.display='none';
+    }
+    else{
+        cont.style.display='none';
+         formMsg.style.display='flex';
+formMsg.innerHTML="<h2>Failed!!</h2>" ;
+formMsg.style.color='red';
+
+    }
+}catch(err){
+    cont.style.display='none';
+    formMsg.textContent="Uncaught error";
+    
+}
+
+    }
+</script>
+</html>

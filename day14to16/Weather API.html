@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@1,513&family=Playwrite+AU+NSW:wght@100..400&family=Playwrite+AU+QLD:wght@100..400&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="overview">
+        <div class="searchbox">
+       <img src="images/maybeof.webp" alt="weatherlogo" id="weatherlogo">
+       <input name="search" placeholder="Search Location.." type="search" id="srch" >
+       <button class="sch" onclick="weather()">&#128269;</button>
+        </div>
+        <div class="card1">
+           <div class="imgdeg">
+            <img src="images/maybefinal.webp" alt="windy" class="images">
+            <h4 id="namew"></h4>
+           </div>
+        <span id="pin">&#128204;</span>
+        <h1 id="deg">&deg;c</h1>
+        <p id="cityname"></p>
+        
+        </div>
+    </div>
+    <style>
+        * {
+  font-family: "Playwrite AU NSW", cursive;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  padding: 0%;
+  margin: 0%;
+}
+.overview{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+background: linear-gradient(#a1c4fd , #c2e9fb)
+}
+.imgdeg{
+    position: relative;
+    top: 40%;
+    left: 40%;
+    height: 100px;
+    width: 200px;   
+}
+.sch{
+    position: absolute;
+    top: 20.5%;
+    right: 37%;
+    font-size: 22px;
+    cursor: pointer;
+    border: none;
+    background-color:#a1c4fd;
+}
+#deg{
+position: absolute;
+top: 99%;
+left: 90%;
+font-weight:500;
+}
+#namew{
+    position: absolute;
+     
+    top: 0%;   
+    left: 70%;
+    font-size: 20px;
+font-weight: 800;
+display: inline;
+width: auto;
+}#pin{
+    position: absolute;
+    top: 145%;
+    left: 65%;
+    font-size: 28px;
+}
+p{
+    position: absolute;
+    top: 155%;
+    left: 90%;
+    font-weight:300;
+    font-size: 20px;
+}
+.card1{
+    position: absolute;
+    top: 40%;
+    left: 35% ;
+    display: none;
+    width: auto;
+    height:auto;
+ text-transform: capitalize;
+}
+/* .card2{
+    position: absolute;
+    top: 40%;
+    left: 35% ;
+    display: none;
+}.card3{
+    position: absolute;
+    top: 40%;
+    left: 35% ;
+    display: none;
+}.card4{
+    position: absolute;
+    top: 40%;
+    left: 35% ;
+    display:none;
+}
+.card{
+    position: absolute;
+    top: 40%;
+    left: 43% ;
+    display:none;
+} */
+.images{
+    height: 100px;
+    width: 100px;
+    display: flex;
+}
+#weatherlogo{
+    height: 100px;
+    width: 100px;
+display: flex;
+position: absolute;
+top: 17%;
+left: 25%;
+}
+#srch{
+    display: flex;
+    width: 400px;
+height: 50px;
+    font-size: 18px;
+    position: absolute;
+    padding-left: 15px;
+    top: 20%;
+    left: 35%;
+    padding-right: 20px;
+    border-radius:10px;
+}
+  </style>
+    <script> 
+        var carddis = document.querySelector(".card1");
+        var btn = document.getElementById("sch");
+var inp = document.getElementById("srch");
+var citynamee= document.getElementById('cityname');
+var cloudname= document.getElementById("namew")
+         function weather(){
+               let inputt = inp.value.trim().toLowerCase();
+               callweather();
+            }
+       let getweather = async(city)=>{
+    let weatherapi ='https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=b52013405c56f2890f3b3f74ba79473a&units=metric';
+let weatherobj = await fetch(weatherapi);
+let responce = weatherobj.json();
+return responce;
+}
+
+async function callweather(){
+    getweather(inp.value)   
+    .then((responce)=>{
+                carddis.style.display='flex';  
+        citynamee.textContent = responce['name'];
+       document.getElementById("deg").textContent=responce['main']['temp']+'°c';
+ var editcloud = responce['weather'][0]['description'];
+ cloudname.textContent=editcloud;
+console.log(responce);
+console.log("City : ",responce['name']);
+console.log("Temperature : ",responce['main']['temp']);
+console.log("Description : ",responce['weather'][0]['description']);
+
+    })
+}
+
+    </script>
+</body>
+</html>

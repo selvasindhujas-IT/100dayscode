@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Animation</title>
+</head>
+
+<body>
+    <div class="overview">
+        <div class="img">
+            <img src="images/jokecomputer.jpg" alt="img" class="images" id="img0">
+            <img src="images/boxing.jpg" alt="img" class="images" id="img1">
+            <img src="images/calender.webp" alt="img" class="images" id="img2">
+            <img src="images/cmpbyte.png" alt="img" class="images" id="img3">
+            <span class="dot" id="firstdot" onclick="firstimg()">.</span>
+            <span class="dot" onclick="secondimg()">.</span>
+            <span class="dot" onclick="thirdimg()">.</span>
+            <span class="dot" onclick="fourthimg()">.</span>
+        </div>
+        <span id="leftslide" onclick="prev()">&#10094;</span>
+        <span id="rightslide" onclick="nxt()">&#10095;</span>
+    </div>
+    <style>
+        * {
+            padding: 0%;
+            margin: 0;
+        }
+
+        .overview {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            position: relative;
+        }
+
+        .images {
+            height: 200px;
+            width: auto;
+            position: absolute;
+            top: 15%;
+            left: 38%;
+            box-shadow: -3px -3px 7px rgba(62, 69, 80, 0.288),
+                2px 2px 5px rgba(62, 69, 80, 0.288);
+          opacity: 0;
+          transition: opacity 0.6s ease-in-out;
+        }
+.images.active{
+    opacity: 1;
+}
+        #leftslide {
+            float: left;
+            position: absolute;
+            top: 40%;
+            left: 20%;
+            font-size: 70px;
+            cursor: pointer;
+        }
+
+        #rightslide {
+            float: right;
+            position: absolute;
+            top: 40%;
+            right: 20%;
+            font-size: 70px;
+            cursor: pointer;
+        }
+
+        .dot {
+
+            position: relative;
+            top: 55%;
+            cursor: pointer;
+            letter-spacing: 40px;
+            font-size: 50px;
+
+        }
+
+        #firstdot {
+            margin-left: 660px;
+        }
+#img0{
+    display: flex;
+
+}
+        #img1 {
+            display: none;
+        }
+
+        #img2 {
+            display: none;
+        }
+
+        #img3 {
+            display: none;
+        }
+    </style>
+    <script>
+        var realimg = document.querySelectorAll(".images");
+        var imagee0 = document.getElementById("img0");
+        var imagee1 = document.getElementById("img1");
+        var imagee2 = document.getElementById("img2");
+        var imagee3 = document.getElementById("img3");
+ var sliderl =document.getElementById("leftslide")
+ var sliderr =document.getElementById("rightslide")
+let currentIndex =0;
+const totalslide = realimg.length;
+ function slideshow(index){
+if(index >= totalslide){
+    currentIndex =0;
+}
+else if(index <0){
+    currentIndex = totalslide -1;
+}
+else{
+    currentIndex =index;
+}
+realimg.forEach(slide =>{
+    slide.style.display ="none";
+slide.style.opacity='0';
+});
+realimg[currentIndex].style.display='flex';
+setTimeout(()=>{
+    realimg[currentIndex].style.opacity='1';
+},50)
+}
+function prev(){
+  
+    slideshow(currentIndex +1);
+    sliderl.style.color='black'
+    sliderr.style.color='black'
+
+}
+function nxt(){
+    slideshow(currentIndex -1);
+sliderl.style.color='black'
+    sliderr.style.color='black'
+}
+function firstimg(){
+    imagee0.style.display="flex"
+    imagee1.style.display="none"
+    imagee2.style.display="none"
+    imagee3.style.display="none"
+    sliderl.style.color='rgba(62, 69, 80, 0.288)'
+    sliderr.style.color='rgba(62, 69, 80, 0.288)'
+
+realimg.forEach(slide =>{
+slide.style.opacity='0';
+});
+setTimeout(()=>{
+    imagee0.style.opacity='1';
+},500)
+}
+function secondimg(){
+    imagee1.style.display="flex"
+    imagee0.style.display="none"
+    imagee2.style.display="none"
+    imagee3.style.display="none"
+    sliderl.style.color='rgba(62, 69, 80, 0.288)'
+    sliderr.style.color='rgba(62, 69, 80, 0.288)'
+realimg.forEach(slide =>{
+slide.style.opacity='0';
+});
+setTimeout(()=>{
+    imagee1.style.opacity='1';
+},500)
+}
+function thirdimg(){
+    imagee2.style.display="flex"
+    imagee3.style.display="none"
+    imagee0.style.display="none"
+    imagee1.style.display="none"
+    sliderl.style.color='rgba(62, 69, 80, 0.288)'
+sliderr.style.color='rgba(62, 69, 80, 0.288)'
+realimg.forEach(slide =>{
+slide.style.opacity='0';
+});
+setTimeout(()=>{
+    imagee2.style.opacity='1';
+},500)
+}
+function fourthimg(){
+    imagee3.style.display="flex"
+    imagee0.style.display="none"
+    imagee2.style.display="none"
+    imagee1.style.display="none"
+    sliderl.style.color='rgba(62, 69, 80, 0.288)'
+sliderr.style.color='rgba(62, 69, 80, 0.288)'
+realimg.forEach(slide =>{
+slide.style.opacity='0';
+});
+setTimeout(()=>{
+    imagee3.style.opacity='1';
+},500)
+}
+
+slideshow(currentIndex);
+
+    </script>
+</body>
+
+</html>

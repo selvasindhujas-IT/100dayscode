@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+</head>
+<body>
+   <div class="view">
+    <div id="box1"> 00:00:00 </div>
+    <button id="btn" onclick="onog()">24 hours</button>
+   </div>
+</body>
+<style>
+    *{
+        margin: 0;
+    }
+    .view{
+        height: 100vh;
+        width: 100%;
+        background:linear-gradient(rgb(246, 124, 246),rgb(252, 179, 191));
+        justify-content: center;
+        align-items: center;
+    }
+    #box1{
+        height: 90px;
+        width: 550px;
+        justify-content: center;
+        align-items: center;
+display: flex;
+background-color:  rgba(0, 0, 0, 0.2);
+position: relative;
+top: 35%;
+left: 32%;
+font-size: 100px;
+transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+    #box1:hover{
+       transform: translateX(-8px) scale(1.03);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);  
+    }
+    #box1.flip{transform: rotateX(90deg); opacity: 0;}
+   #btn{
+position: absolute;
+top: 50%;
+left: 45%;
+font-size: 20px;
+padding: 5px;
+background: whitesmoke;
+border: 2px solid;
+font-style: italic;
+transition: background-color 0.3s ease;
+   }
+   #btn:hover{
+background: transparent;
+box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);  
+
+   }
+</style>
+<script>
+ var box =document.getElementById("box1");
+ var bttn = document.getElementById("btn");
+  var stop1= setInterval(()=>{
+        const today =new Date();
+       const t = today.toLocaleString("en-us",{ hour:'numeric',minute:'numeric', second:'numeric', hour12:true});
+       box.textContent=t;
+    },1000);
+function on1(){
+    clearInterval(stop1); 
+    clearInterval(stp);
+    
+   var stop= setInterval(()=>{
+        const todayy =new Date();
+       const tt = todayy.toLocaleString("en-us",{ hour:'numeric',minute:'numeric', second:'numeric', hour12:true});
+       box.textContent=tt;
+    },1000);
+    bttn.textContent="24 Hours";
+    
+};
+   function on(){
+    
+   clearInterval(stop);
+   clearInterval(stop1);
+   var stp=  setInterval(()=>{
+         const now =new Date();
+      const time =now.toLocaleTimeString();
+      box.innerText=time;
+     },1000);
+     bttn.textContent="12 Hours"
+     
+   };
+   function onog(){
+   
+box.classList.add("flip");
+setTimeout(()=>{
+    box.textContent=on();
+    box.classList.remove("flip")
+},500)
+
+    if(bttn.textContent==='24 Hours'){ 
+       
+     on();
+    
+    }else {
+    on1();
+    
+  }
+ };
+   
+   
+   
+</script>
+</html>

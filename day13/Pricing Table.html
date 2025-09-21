@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Table</title>
+    
+</head>
+<body>
+    <div class="overview">
+        
+    <div class="box">
+        <span style="color: green;font-size: 25px;" class="fst">&#10004;</span>
+       
+        <p>Free Support 24/7</p> <br>
+        <span style="color: green; font-size: 25px;" class="sec">&#10004;</span>
+<p>10 Databases</p><br>
+<span class="thd" style="font-size: 15px;">&#10060;</span>
+<span class="fth"style="font-size: 15px;">&#10060;</span>
+<p id="space">Unlimited Traffic</p><br>
+<p>Email</p>
+<button class="btn">Demo & Buy</button>
+    </div>
+        <div class="updesign">
+            <h1>BASIC</h1>
+            <h4>$10.99</h4>
+        </div>
+ <div class="box">
+        <span style="color: green;font-size: 25px;" class="fst">&#10004;</span>
+       
+        <p>Free Support 24/7</p> <br>
+        <span style="color: green; font-size: 25px;" class="sec">&#10004;</span>
+<p>10 Databases</p><br>
+<span class="thd" style="font-size: 25px; color: green;top:49%">&#10004;</span>
+<span class="fth"style="font-size: 15px;">&#10060;</span>
+<p id="space">Unlimited Traffic</p><br>
+<p>Email</p>
+<button class="btn" id="secdemo">Demo & Buy</button>
+<div id="recom"> <span>Recommand</span></div>
+    </div>
+     <div class="updesign" style="left: 39.5%; background-color: limegreen;">
+            <h1 style="left: 18%;">STANDARD</h1>
+            <h4>$30.99</h4>
+        </div>
+     <div class="box">
+        <span style="color: green;font-size: 25px;" class="fst">&#10004;</span>
+       
+        <p style="font-weight: bold; font-style: italic;">Free Support 24/7</p> <br>
+        <span style="color: green; font-size: 25px;" class="sec">&#10004;</span>
+<p style="font-weight:bold; font-style: italic;">10 Databases</p><br>
+<span class="thd" style="font-size: 25px; color: green; top:49%">&#10004;</span>
+<span class="fth"style="font-size: 25px; color: green; top:58%">&#10004;</span>
+<p id="space" style="font-weight: bold; font-style: italic; ">Unlimited Traffic</p><br>
+<p style="font-weight:900; font-style: italic;">Email</p>
+<button class="btn"  id="thddemo">Demo & Buy</button>
+    </div>
+    <div class="updesign" style="left:59% ; background-color: orangered;">
+            <h1 style="left:18%;">PREMINUM</h1>
+            <h4>$70.99</h4>
+        </div>
+    </div>
+    <style>
+        *{
+            padding: 0;
+            margin: 0%;
+        }
+        .overview{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+        }
+        .box{
+         height: 300px;
+         width: 220px;
+         box-shadow: -3px -3px 7px 2px rgba(62, 69, 80, 0.288),
+                2px 2px 5px  rgba(62, 69, 80, 0.288);
+     position: relative;
+     padding-top: 150px;
+     padding-left: 40px;
+     margin-right: 40px;
+     top: 140px;
+     left: 20%;
+        }
+        .box:hover{
+            transform: scaley(1.1);
+        }
+        #recom{
+            height: 100px;
+            width: 130px;
+            position: absolute;
+    /* overflow: hidden; */
+    bottom:  -10px;
+            left: -40px;
+            /* background-color: red; */
+        }
+        #recom span{
+            position: absolute;
+            background-color: limegreen;
+            width: 120px;
+            padding: 10px 0;
+            color: white;
+            text-align: center;
+            transform: rotate(45deg);
+            border-radius: 45%;
+            top: 50%;
+            right: 0%;
+            
+            
+        }
+        #secdemo{
+            background-color: limegreen;
+        }
+        #secdemo:hover{
+            background-color: rgb(128, 250, 128);
+        }
+        #thddemo{
+            background-color: orangered;
+            font-weight: bold; font-style: italic;
+        }
+        #thddemo:hover{
+            background-color: rgb(250, 126, 82);
+        }
+        .btn{
+            padding: 10px;
+            position: relative;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-size: 17px;
+            border-radius: 5px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: rebeccapurple;
+            color: white;
+            transition: 1s ease;
+top: 20%;
+left: 30%;
+        }
+        .btn:hover{
+            background-color: rgb(166, 91, 241);
+        }
+        .updesign{
+            height: 150px;
+            width: 260px;
+            position: absolute;
+            top: 100px;
+            left: 20%;
+            background-color: rebeccapurple;
+            clip-path: polygon(0% 0%,100% 0%,100% 90%,50% 50%,0% 90%);
+        }
+h1{
+    position: relative;
+    color:whitesmoke;
+    left: 30%;
+    top: 10px;
+}
+h4{
+position: relative;
+color: white;
+left: 40%;
+top: 15px;
+}
+.fst{
+display: flex;
+position: absolute;
+top: 31%;
+left: 5%;
+}
+.sec{
+    display:flex;
+    position: absolute;
+    top: 40%;
+    left: 5%;
+}
+.thd{
+position: absolute;
+left: 5%;
+top: 51%;
+}
+.fth{
+position: absolute;
+left: 5%;
+top: 60%;
+}
+#space{
+    padding-top: 10px;
+}
+    </style>
+</body>
+</html>

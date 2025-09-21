@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+</head>
+<body>
+    <div class="overview">
+<div class="main">       
+            <h5 class="q">Q:What is the capital of Australia?</h5><span onclick="opena()" class="down">v</span>
+            <span class="upp" onclick="closea()">^</span>
+            <div class="sub1"><h5 class="a">A: Canberra</h5></div>         
+        </div>       
+    </div>    
+</body>
+<style>
+    *{
+        padding: 0%;
+        margin: 0;
+    }
+    .overview{
+        height: 100vh;
+        width: auto;
+        background:linear-gradient(red,orange)
+    }
+    .main{
+        height: auto;
+        width: auto ;
+        background-color: rgba(0, 0, 0, 0.2);
+      display: flex;
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        border:solid;
+        padding: 15px;
+        padding-right:150px;    
+        color: white; 
+    }
+    #q2{
+        position: absolute;
+        top: 90%;
+        left: 4%;
+    }
+   
+    .sub1{
+        position: absolute;
+        top: 60%;
+    padding-top: 5px;
+        left: 4%;
+    }
+
+    .a{
+        display: none;  }
+
+    .down{
+        float: right;
+        position: absolute;
+        top: 24%;
+        right: 18px;
+        cursor: pointer;
+       display: flex;
+    }
+    .upp{
+          float: right;
+        position: absolute;
+        top: 24%;
+        right: 18px;
+        cursor: pointer;
+        display: none;
+        font-size:20px ;
+        font-weight: bold;
+    }
+</style>
+<script>
+     var dropdwn=document.getElementsByClassName("a")[0];
+     var ques=document.getElementsByClassName("q")[0];
+     var up =document.getElementsByClassName("down")[0];
+        var realup = document.getElementsByClassName("upp")[0];
+        var clr =document.getElementsByClassName("overview")[0];
+    function opena(){
+        dropdwn.style.display="flex"
+         ques.style.paddingBottom="20px"
+        realup.style.display="flex"
+          up.style.display="none"
+clr.style.background=clrfun();
+    }
+    function clrfun(){
+        var letters='0123456789ABCDEFGH';
+        var color='#';
+        for (let i=0;i<6;i++){
+            color+=letters[Math.floor(Math.random()*9)];
+        }
+        return color;
+    }
+    function closea(){
+       dropdwn.style.display="none" 
+       ques.style.paddingBottom="0"
+       up.style.display="flex"
+       realup.style.display="none"
+    }
+</script>
+</html>

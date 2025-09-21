@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Popup</title>
+</head>
+<body>
+    <div class="main">
+    <button id="modelbox" onclick="openbox()">Model Box</button>
+</div>
+<div class="overview">
+    <div id="overley">
+<h1 id="btn" onclick="colsebox()">x</h1>
+    <h2 id="first">Welcome to My Model Popup!</h2>
+<h2 id="second"> This is a simple model with close button</h2>
+    </div>
+    </div>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            
+        }
+        .main{
+        
+            background: white;
+            height: 100vh;
+            width: 100%;
+           z-index: 1; 
+           overflow: hidden;      
+        }
+        .main::before{
+            content: "";
+            position:absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(purple,pink);
+            z-index: 0;
+    transform-origin: center;
+    transform: scale(1);
+    opacity: 1;
+    transition:transform 5s ease,opacity 0.6s ease;
+    
+        }
+        .main:active::before{
+            transform: scale(1);
+            opacity: -1;
+        }
+        .main >*{
+            position: relative;
+            z-index: 1;
+        }
+        #modelbox{
+            border: 20px;
+            height: max-content;
+            width: max-content;
+            padding: 10px;
+            background: radial-gradient(rgb(247, 158, 173) , purple);
+            border-radius: 20px;
+            margin-left: 45%;
+            margin-top: 40px;
+            color:white;    
+            opacity: 1;
+            transform: scale(0.9);
+            transition: all 0.3s ease;    
+        }
+        #modelbox.active{
+            opacity: 2;
+            transform: scale(1);
+        }
+        #overley{
+          display: none;
+          height: 500px;
+          width: 600px;
+    position: fixed;
+    box-shadow: 0 6px 20px rgba(0, 0,0, 0.4);
+    top: 20%;
+    backdrop-filter: blur(200px);
+ justify-content:center;
+ z-index: 2;
+ background:linear-gradient(purple,pink);
+    left: 30%;
+        }
+          @property --angle{
+            syntax: "<angle>";
+                initial-value: 0deg;
+                inherits: false;
+          }
+        .overview.active::after , .overview.active::before{
+            content: '';
+            position: absolute; 
+            height: 507px;
+            width: 607px;
+            top: 54.3%;
+            left: 49.6%;
+            z-index:0;
+            transform: translate(-50%,-50%);
+            background:linear-gradient(var(--angle), transparent 60%,rgb(79, 2, 79));  
+            animation: 2s spin linear infinite;
+        }
+        .overview.active::before{
+            
+            filter: blur(1.5rem);
+            opacity: 0.5;
+        /* background: linear-gradient(pink,purple,pink); */
+        }
+        @keyframes spin{
+            from{
+               --angle:0deg; 
+            }
+            to{
+                --angle:360deg;
+            }
+        }
+         #first{
+            position: absolute;
+            bottom: 50%;
+
+        }
+        #second{
+            position: absolute;
+            bottom: 42%;
+        }
+        #btn{
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        
+            cursor: pointer;
+    
+        }
+        #btn:hover{
+            color: #ffcccc;
+        }
+    </style>
+    <script>
+        var over=document.getElementById("overley");
+ function openbox(){
+   var Main= document.getElementById('modelbox');
+   Main.classList.remove("active");
+    var over=document.getElementById("overley");
+    over.style.display="flex";
+    const view=document.getElementsByClassName("main")[0];
+    
+    view.style.background="white"; 
+    var act=document.getElementsByClassName("overview")[0];
+    act.classList.toggle("active");
+    
+ }
+ function colsebox(){
+  over.style.display="none"
+  var act=document.getElementsByClassName("overview")[0];
+    act.classList.toggle("active");
+ }
+    </script>
+</body>
+</html>

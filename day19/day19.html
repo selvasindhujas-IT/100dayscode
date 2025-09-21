@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes</title>
+</head>
+<body>
+    <div class="overview">
+        <div class="qbox">
+            <h2>Quote of the Day</h2>
+            <p id="display">Click here &#128071; to load a quote</p>
+            <button onclick="Quotedis()">Get New Quote</button>
+        </div>
+    </div>
+</body>
+<style>
+    *{
+        padding: 0%;
+        margin: 0%;
+    }
+    .overview{
+height: 100vh;
+width: 100%;
+justify-content: center;
+align-items: center;
+    }
+    .qbox{
+box-shadow: 0px 2px 5px 2px ;
+height: max-content;
+width: max-content;
+background-color: olivedrab;
+padding: 20px;
+position: absolute;
+left: 40%;
+top: 30%;
+    }
+    h2{
+        padding-bottom: 20px;
+    }
+    p{
+        padding-bottom: 20px;
+    }
+    button{
+        padding: 10px;
+        border:none;
+     position: relative;
+     left: 20%;
+    padding-top: 10px
+    }
+    button:hover{
+        border: black solid;
+        background-color: rgb(202, 245, 117);
+    }
+</style>
+<script>
+var change =document.getElementById("display");
+    async function Quotedis(){
+
+        try{
+
+            const res =await fetch("http://localhost:6000/qoute");
+        
+const data = await res.json();
+change.textContent=data;
+        }
+catch (error){
+    console.error("Error fetching quote:", error);
+}
+   }
+</script>
+</html> 

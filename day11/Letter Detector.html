@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>letter Detector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playwrite+AU+NSW:wght@100..400&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="overview">
+        <div id="div" role="button" onclick="display()" ondblclick="displayoff()">keyboard</div>
+        <div class="box">press anything</div>
+        <div class="container">
+            <form class="wrapper">
+                <div class="key">
+                    <input type="button" value="q" name="q" onclick="disp(q.value)">
+                    <input type="button" value="w"name="w" onclick="disp(w.value)">
+                    <input type="button" value="e"name="e" onclick="disp(e.value)">
+                    <input type="button" value="r"name="r" onclick="disp(r.value)">
+                    <input type="button" value="t"name="t" onclick="disp(t.value)">
+                    <input type="button" value="y"name="y" onclick="disp(y.value)">
+                    <input type="button" value="u"name="u" onclick="disp(u.value)">
+                    <input type="button" value="i"name="i" onclick="disp(i.value)">
+                    <input type="button" value="o"name="o" onclick="disp(o.value)">
+                    <input type="button" value="p"name="p" onclick="disp(p.value)">
+
+                </div>
+                <div class="key">
+                    <input type="button" value="a"name="a" onclick="disp(a.value)">
+                    <input type="button" value="s"name="s" onclick="disp(s.value)">
+                    <input type="button" value="d"name="d" onclick="disp(d.value)">
+                    <input type="button" value="f"name="f" onclick="disp(f.value)">
+                    <input type="button" value="g"name="g" onclick="disp(g.value)">
+                    <input type="button" value="h"name="h" onclick="disp(h.value)">
+                    <input type="button" value="j"name="j" onclick="disp(j.value)">
+                    <input type="button" value="k"name="k" onclick="disp(k.value)">
+                    <input type="button" value="l"name="l" onclick="disp(l.value)">
+
+                </div>
+                <div class="key">
+                    <input type="button" value="z"name="z" onclick="disp(z.value)">
+                    <input type="button" value="x"name="x" onclick="disp(x.value)">
+                    <input type="button" value="c"name="c" onclick="disp(c.value)">
+                    <input type="button" value="v"name="v" onclick="disp(v.value)">
+                    <input type="button" value="b"name="b" onclick="disp(b.value)">
+                    <input type="button" value="n"name="n" onclick="disp(n.value)">
+                    <input type="button" value="m"name="m" onclick="disp(m.value)">
+
+                </div>
+                <div class="key">
+                    <input type="button" value="space" name="space" onclick="disp(space.value)">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<style>
+    * {
+        font-family: "Winky Rough", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        padding: 0%;
+        margin: 0;
+    }
+   
+.box{
+    height: auto;
+    width: auto;
+    background-color: transparent;
+    position: absolute;
+    top: 25%;
+    color: black;
+    font-size: 21px;
+padding: 10px;
+    left: 43%;
+     box-shadow:  -3px -3px 7px rgba(62, 69, 80, 0.288),
+             2px 2px 5px rgba(62, 69, 80, 0.288);
+             
+}
+    .overview {
+        background: linear-gradient(-45deg,greenyellow, yellow,#ffb375,#ef5f5f,#d840b6,lavender,purple,pink,lightblue);
+        background-size: 400% 400%;
+        animation: bg 30s ease infinite;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+@keyframes bg{
+    0%{
+        background-position: 0% 50%;
+    }
+     5%{
+        background-position: 100% 100%;
+    }
+     100%{
+        background-position: 0% 50%;
+    }
+}
+    #div {
+        height: max-content;
+        width: max-content;
+        background: black;
+        color: white;
+        position: absolute;
+        top: 15%;
+        left: 44%;
+        padding: 5px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+         box-shadow:  -3px -3px 7px #ffffff73,
+             2px 2px 5px rgba(94, 104, 121, 0.288);
+    }
+
+    .container {
+        width: 50%;
+        position: absolute;
+        top: 40%;
+        left: 24%;
+        display: none;
+
+    }
+
+    .wrapper {
+        min-width: 300px;
+        max-width: 750px;
+        padding: 20px;
+        background: #dde1e7;
+        box-shadow: -3px -3px 7px #ffffff73,
+            2px 2px 5px rgba(94, 104, 121, 0.288);
+        border-radius: 10px;
+
+    }
+
+    .key {
+        display: flex;
+        justify-content: center;
+    }
+
+    .key input {
+        height: 50px;
+        min-width: 50px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        font-size: 20px;
+        margin: 10px;
+        color: gray;
+        text-transform: uppercase;
+        border-radius: 5px;
+        background: #dde1e7;
+        box-shadow: -3px -3px 7px #ffffff73,
+            2px 2px 5px rgba(94, 104, 121, 0.288);
+        border-radius: 10px;
+    }
+
+    .key input:focus {
+        color: darkred;
+
+        background: #dde1e7;
+        box-shadow: inset -3px -3px 7px #ffffff73,
+            inset 2px 2px 5px rgba(94, 104, 121, 0.288);
+        border-radius: 10px;
+    }
+
+    .key input[value="space"] {
+        width: 60%;
+    }
+</style>
+<script>
+  var keyb =document.getElementsByClassName("container")[0];
+  var boxc =document.getElementsByClassName("box")[0];
+  function display(){
+    keyb.style.display="flex";
+   //        boxc.style.display="flex";
+  }
+  document.addEventListener("keydown",function(event){
+    let press =event.key;
+    boxc.textContent="you pressed   " + press;
+  })
+  function disp(result){
+    boxc.textContent="you pressed   " + result;
+    
+  }
+   function displayoff(){
+    keyb.style.display="none";
+  }
+</script>
+
+</html>

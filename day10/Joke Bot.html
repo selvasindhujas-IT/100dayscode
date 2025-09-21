@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Bot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playwrite+AU+NSW:wght@100..400&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="overview">
+        <div class="jokebtn" onclick="joke()" role="button">Tell me a Joke</div>
+    </div>
+    <div class="anotherdiv" id="one1">
+        <button class="back" onclick="again()">&#x21A9; </button>
+        <img src="images/jokecomputer.jpg" alt="img" class="images">
+
+        <h2 class="realjoke">I told my computer I needed a break,and now it won't stop sending me KitKat ads. &#128527;
+        </h2>
+
+    </div>
+    <div class="anotherdiv" id="one">
+        <button class="back" onclick="again()">&#x21A9; </button>
+        <img src="images/familytalk.jpg" alt="img" class="images">
+
+        <h2 class="realjoke">My Wi-Fi went down for five minutes,so I had to talk to my family.They seem nice. &#128517;
+        </h2>
+
+    </div>
+    <div class="anotherdiv" id="two">
+        <button class="back" onclick="again()">&#x21A9; </button>
+        <img src="images/perfoctbook.jpg" alt="img" class="images">
+
+        <h2 class="realjoke">I am reading a book on anti-gravity.It's impossible to put down. &#129319;</h2>
+
+    </div>
+    <div class="anotherdiv" id="three">
+        <button class="back" onclick="again()">&#x21A9; </button>
+        <img src="images/nasa.jpg" alt="img" class="images">
+
+        <h2 class="realjoke">I told my phone it needed some space...now it won't stop sending me NASA updates. &#129315;
+        </h2>
+
+    </div>
+    <div class="anotherdiv" id="four">
+        <button class="back" onclick="again()">&#x21A9; </button>
+        <img src="images/calender.webp" alt="img" class="images">
+
+        <h2 class="realjoke">My Calender's days are numbered.&#128580;</h2>
+
+    </div>
+    <div class="anotherdiv" id="five">
+        <button class="back" onclick="again()">&#x21A9; </button>
+        <img src="images/cmpbyte.png" alt="img" class="images">
+
+        <h2 class="realjoke">I asked my computer for a snack...it give me a byte. &#128521;</h2>
+
+    </div>
+    <div class="anotherdiv" id="six">
+        <button class="back" onclick="again()">&#x21A9; </button>
+        <img src="images/elect.jpg" alt="img" class="images">
+
+        <h2 class="realjoke">I'm friends with all electricians-we have a good current connections.&#129323;</h2>
+
+    </div>
+    <div class="anotherdiv" id="seven">
+        <button class="back" onclick="again()">&#x21A9; </button>
+        <img src="images/boxing.jpg" alt="img" class="images">
+
+        <h2 class="realjoke">My computer beat me at chess...but it was no match for me at kickboxing. &#128526;</h2>
+
+    </div>
+    <div class="anotherdiv" id="eight">
+        <button class="back" onclick="again()">&#x21A9; </button>
+        <img src="images/light.webp" alt="img" class="images">
+
+        <h2 class="realjoke">The light bulb quit its job - it was feeling brunt out. &#129319;</h2>
+
+    </div>
+    <div class="anotherdiv" id="nine">
+        <button class="back" onclick="again()">&#x21A9; </button>
+        <img src="images/alarm.jpg" alt="img" class="images">
+
+        <h2 class="realjoke">My bed and I are perfect for each other..but my alarm clock keeps trying to break us up.
+            &#129327;</h2>
+
+    </div>
+    <div class="anotherdiv" id="ten">
+        <button class="back" onclick="again()">&#x21A9; </button>
+        <img src="images/dog.jpg" alt="img" class="images">
+
+        <h2 class="realjoke">I asked my dog what's two minus two..he said nothing. &#129327</h2>
+
+    </div>
+</body>
+<style>
+    * {
+        margin: 0;
+        font-family: "Lato", sans-serif;
+        font-weight: 900;
+        font-style: italic;
+
+    }
+
+    .overview {
+        height: 100vh;
+        width: 100%;
+        background: repeating-linear-gradient(45deg, rgb(245, 245, 112) 10px, pink 20px, rgb(246, 195, 100) 10px);
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 0;
+        display: flex;
+    }
+
+    .anotherdiv {
+        height: 100vh;
+        width: 100%;
+        display: none;
+        position: absolute;
+        background-color: rgb(87, 86, 86);
+        z-index: 2;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .back {
+        position: absolute;
+        top: 10%;
+        left: 15%;
+        border-radius: 10px;
+
+    }
+
+    .back:hover {
+        transform: scale(1.5);
+    }
+
+    #one {
+        display: none;
+        z-index: 2;
+    }
+
+    #two {
+        display: none;
+    }
+
+    #three {
+        display: none;
+    }
+
+    #four {
+        display: none;
+
+    }
+
+    #five {
+        display: none;
+    }
+
+    #six {
+        display: none;
+    }
+
+    #seven {
+        display: none;
+    }
+
+    #eight {
+        display: none;
+    }
+
+    #nine {
+        display: none;
+    }
+
+    #ten {
+        display: none;
+    }
+
+    #one1 {
+        display: none;
+        z-index: 2;
+    }
+
+    .realjoke {
+        text-shadow: 0 0 20px whitesmoke, 0 0 40px whitesmoke, 0 0 80px whitesmoke;
+        display: inline-flex;
+        position: absolute;
+        top: 70%;
+    }
+
+    .images {
+        height: 200px;
+        border: 2px solid;
+        position: absolute;
+        background-color: #bad7f5;
+        z-index: 0;
+        top: 23%;
+        left: 40%;
+        display: inline-block;
+
+    }
+
+    .jokebtn {
+        height: auto;
+        width: 190px;
+        background-color: rgb(253, 251, 251);
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        position: absolute;
+        display: flex;
+        padding: 2px;
+        border-radius: 9px;
+        top: 44%;
+        left: 44%;
+        cursor: pointer;
+        background: radial-gradient(white 40%, gold);
+    }
+
+    .jokebtn:hover {
+        transform: scale(1.1);
+    }
+
+    .jokebtn:hover.active {
+        transition: transform 1s ease;
+        transform: rotateY(45deg);
+    }
+</style>
+<script>
+    var another = document.querySelectorAll(".anotherdiv");
+    var view = document.getElementsByClassName("overview")[0];
+    var jokeof = document.getElementsByClassName("jokebtn")[0];
+    let list1 = 0
+    function joke() {
+        let list = ['one', 'two', 'three', 'four', 'five', 'one1', 'six', 'seven', 'eight', 'nine', 'ten'];
+
+        //var forjoke =list[Math.floor(Math.random()*list.length)];
+        var forjoke = list[list1];
+        let randomElement = document.getElementById(forjoke);
+        jokeof.classList.add('active');
+        view.style.display = "none";
+        randomElement.style.display = "flex";
+        list1 += 1
+    }
+    function again() {
+        view.style.display = "flex";
+        randomElement.style.display = "none";
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Gallery</title>
+</head>
+<body>
+    <!-- <div class="slider"> -->
+    <div class="container">
+
+    <img src="https://picsum.photos/300?random=1"alt="Gallery Image" onclick="openLightbox(0)">
+    <img src="https://picsum.photos/300?random=9"alt="Gallery Image"onclick="openLightbox(8)">
+    <img src="https://picsum.photos/300?random=8"alt="Gallery Image"onclick="openLightbox(7)">
+    <img src="https://picsum.photos/300?random=7"alt="Gallery Image"onclick="openLightbox(6)">
+    <img src="https://picsum.photos/300?random=6"alt="Gallery Image"onclick="openLightbox(5)">
+    <img src="https://picsum.photos/300?random=5"alt="Gallery Image"onclick="openLightbox(4)">
+    <img src="https://picsum.photos/300?random=4"alt="Gallery Image"onclick="openLightbox(3)">
+    <img src="https://picsum.photos/300?random=3"alt="Gallery Image"onclick="openLightbox(2)">
+    <img src="https://picsum.photos/300?random=2"alt="Gallery Image"onclick="openLightbox(1)">
+    </div>
+  
+    <div class="lightbox" id="lightbox">
+     <span class="close" onclick="closeLightbox()">x</span>
+       
+        <span class="arrowright" onclick="nextImage()">&#10094;</span>
+         <img id="lightbox-img" src=""alt="Large view">
+        <span class="arrowleft" onclick="prevImage()">&#10095;</span>
+
+    </div>
+
+<style>
+   
+
+    .container{
+       display: grid;
+       justify-content: center;
+       align-items: center;
+       height: 100%;
+       grid-template-rows: repeat(3,100px); grid-template-columns: repeat(3,100px);
+       grid-auto-flow: unset;
+      width: 100%;
+    
+    }
+    .container img{
+        height: 90px;
+        width: 90px;
+        transition: 0.3s;
+    }
+    .container img:hover{
+        transform: scale(1.05);
+    }
+    .lightbox{
+        display: none;
+        position: fixed;
+        top: 0;left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        flex-direction: column;
+    }
+    .lightbox img{
+ max-width: 90%;
+ max-height: 80%;
+ box-shadow: 0 0 20PX #fff;
+    }
+    .lightbox .close{
+        position: absolute;
+        top: 10px;
+        right: 40px;
+        align-items:  center;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+        z-index: 1002;
+    }
+   
+    .arrowright{
+        position:absolute;
+        left: 0;
+       margin: 20px;
+       border: none;
+       font-size: 40px;
+       color: white;
+    }
+    .arrowleft{
+        position: absolute;
+        right: 0;
+        color: white;
+        margin: 20px;
+        border: none;
+       font-size: 40px;
+    }
+    .arrow{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 60px;
+        color: white;
+        cursor: pointer;
+        user-select: none;
+        z-index: 1001;
+    }
+    
+</style>
+<script>
+    const images=["https://picsum.photos/300?random=1",
+    "https://picsum.photos/300?random=2",
+    "https://picsum.photos/300?random=3",
+    "https://picsum.photos/300?random=4",
+    "https://picsum.photos/300?random=5",
+    "https://picsum.photos/300?random=6",
+    "https://picsum.photos/300?random=7",
+    "https://picsum.photos/300?random=8",
+    "https://picsum.photos/300?random=9",
+
+    ];
+    let currentIndex =0;
+    function openLightbox(index){
+        currentIndex=index;
+        document.getElementById("lightbox-img").src=images[currentIndex];
+        document.getElementById('lightbox').style.display="flex";
+     document.getElementsByClassName("btn")[0].style.display="block";
+    }
+    
+    function closeLightbox(){
+        document.getElementById("lightbox").style.display="none";
+    }
+    function nextImage(){
+        currentIndex=(currentIndex - 1)%images.length;
+        document.getElementById("lightbox-img").src=images[currentIndex];
+    }
+    function prevImage(){
+        currentIndex=(currentIndex + 1)%images.length;
+        document.getElementById("lightbox-img").src=images[currentIndex];
+    }
+</script>
+</body>
+
+</html>
